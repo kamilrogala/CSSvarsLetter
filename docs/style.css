@@ -5,21 +5,19 @@
 	--bgColor: #fff;
 	--borderColor: #F44336;
 	
-	/* VARIABLES FOR ANIMATION*/
-	--startOpacity: 1;
-	--endOpacity: .7;
+	/* VARIABLE FOR ANIMATION */
+
 	--animation: none;
 	
-	/*	UNCOMMENT BELOW LINES FOR SIMPLE ANIMATION */
-	/*	THEN ADD SOME OTHER BACKGROUND COLOR FOR H1::BEFORE, AND H1::AFTER */
-	/*	--startOpacity: .15;*/
-	/*	--animation: opacity .7s ease-in alternate infinite;*/
+	/*	UNCOMMENT BELOW LINE FOR SIMPLE ANIMATION */
+		--animation: fancyBorder 1.2s ease-in alternate infinite;
 }
 
 body {
 	margin: 0;
 	font-family: arial;
-	background: var(--bgColor)
+	background: var(--bgColor);
+	overflow: hidden
 }
 
 .wrapper {
@@ -38,7 +36,10 @@ h1 {
 	/*	COMMENT LINE BELOW IF YOU WANT TEST FEW LETTERS INSTEAD OF ONE */
 	width: var(--fontSize);
 	position: relative;
-	/*	LITTLE TIP: TRY here BORDER-RADIUS PROPERTY- LOOKS AWESOME */
+	-webkit-animation: var(--animation);
+	-moz-animation: var(--animation);
+	-o-animation: var(--animation);
+	animation: var(--animation);
 }
 
 h1::before,
@@ -48,11 +49,6 @@ h1::after {
 	display: block;
 	position: absolute;
 	z-index: 1;
-	opacity: var(--startOpacity);
-	-webkit-animation: var(--animation);
-	-moz-animation: var(--animation);
-	-o-animation: var(--animation);
-	animation: var(--animation);
 }
 
 h1::before {
@@ -92,38 +88,13 @@ span {
 	z-index: 9;
 }
 
-@-webkit-keyframes opacity {
+@keyframes fancyBorder{
 	from {
-		opacity: var(--startOpacity)
+		padding:0;
+		border-radius: 0%
 	}
 	to {
-		opacity: var(--endOpacity)
-	}
-}
-
-@-moz-keyframes opacity {
-	from {
-		opacity: var(--startOpacity)
-	}
-	to {
-		opacity: var(--endOpacity)
-	}
-}
-
-@-o-keyframes opacity {
-	from {
-		opacity: var(--startOpacity)
-	}
-	to {
-		opacity: var(--endOpacity)
-	}
-}
-
-@keyframes opacity {
-	from {
-		opacity: var(--startOpacity)
-	}
-	to {
-		opacity: var(--endOpacity)
+		padding:calc(var(--fontSize) / 2);
+		border-radius: 50%;
 	}
 }
