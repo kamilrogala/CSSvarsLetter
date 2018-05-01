@@ -1,0 +1,127 @@
+:root {
+	
+	/*	PLAY WITH THESE VARIABLES TO SEE HOW IT WORKS! */
+	--fontSize: 200px;
+	--bgColor: #fff;
+	--borderColor: #F44336;
+	
+	/* VARIABLES FOR ANIMATION*/
+	--startOpacity: 1;
+	--endOpacity: .7;
+	--animation: none;
+	
+	/*	UNCOMMENT BELOW LINES FOR SIMPLE ANIMATION */
+	/*	--startOpacity: .15;*/
+	/*	--animation: opacity .7s ease-in alternate infinite;*/
+}
+
+body {
+	margin: 0;
+	font-family: arial;
+	background: var(--bgColor)
+}
+
+.wrapper {
+	width: 90%;
+	text-align: center;
+	margin: auto;
+}
+
+h1 {
+	font-size: var(--fontSize);
+	line-height: 1;
+	border: -webkit-calc(var(--fontSize) / 10) solid var(--borderColor);
+	border: -moz-calc(var(--fontSize) / 10) solid var(--borderColor);
+	border: calc(var(--fontSize) / 10) solid var(--borderColor);
+	display: inline-block;
+	/*	COMMENT LINE BELOW IF YOU WANT TEST FEW LETTERS INSTEAD OF ONE */
+	width: var(--fontSize);
+	position: relative
+}
+
+h1::before,
+h1::after {
+	content: '';
+	background: var(--bgColor);
+	display: block;
+	position: absolute;
+	z-index: 1;
+	opacity: var(--startOpacity);
+	-webkit-animation: var(--animation);
+	-moz-animation: var(--animation);
+	-o-animation: var(--animation);
+	animation: var(--animation)
+}
+
+h1::before {
+	width: -webkit-calc(var(--fontSize) / 5 + 100%);
+	width: -moz-calc(var(--fontSize) / 5 + 100%);
+	width: calc(var(--fontSize) / 5 + 100%);
+	height: -webkit-calc(var(--fontSize)/2);
+	height: -moz-calc(var(--fontSize)/2);
+	height: calc(var(--fontSize)/2);
+	top: 50%;
+	left: 0;
+	-webkit-transform: translate(-webkit-calc(var(--fontSize) / 10 * -1), -50%);
+	-moz-transform: translate(-moz-calc(var(--fontSize) / 10 * -1), -50%);
+	-ms-transform: translate(calc(var(--fontSize) / 10 * -1), -50%);
+	-o-transform: translate(calc(var(--fontSize) / 10 * -1), -50%);
+	transform: translate(calc(var(--fontSize) / 10 * -1), -50%);
+}
+
+h1::after {
+	width: -webkit-calc(var(--fontSize)/2);
+	width: -moz-calc(var(--fontSize)/2);
+	width: calc(var(--fontSize)/2);
+	height: -webkit-calc(var(--fontSize) / 5 + 100%);
+	height: -moz-calc(var(--fontSize) / 5 + 100%);
+	height: calc(var(--fontSize) / 5 + 100%);
+	top: 0;
+	left: 50%;
+	-webkit-transform: translate(-50%, -webkit-calc(var(--fontSize) / 10 * -1));
+	-moz-transform: translate(-50%, -moz-calc(var(--fontSize) / 10 * -1));
+	-ms-transform: translate(-50%, calc(var(--fontSize) / 10 * -1));
+	-o-transform: translate(-50%, calc(var(--fontSize) / 10 * -1));
+	transform: translate(-50%, calc(var(--fontSize) / 10 * -1));
+}
+
+span {
+	position: relative;
+	z-index: 9;
+}
+
+@-webkit-keyframes opacity {
+	from {
+		opacity: var(--startOpacity)
+	}
+	to {
+		opacity: var(--endOpacity)
+	}
+}
+
+@-moz-keyframes opacity {
+	from {
+		opacity: var(--startOpacity)
+	}
+	to {
+		opacity: var(--endOpacity)
+	}
+}
+
+@-o-keyframes opacity {
+	from {
+		opacity: var(--startOpacity)
+	}
+	to {
+		opacity: var(--endOpacity)
+	}
+}
+
+@keyframes opacity {
+	from {
+		opacity: var(--startOpacity)
+	}
+	to {
+		opacity: var(--endOpacity)
+	}
+}
